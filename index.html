@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorldKey — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-bright: #e8c96a;
+      --gold-dim: #7a6030;
+      --bg: #0a0804;
+      --bg2: #110e06;
+      --bg3: #1a1508;
+      --border: rgba(201, 168, 76, 0.2);
+      --border-bright: rgba(201, 168, 76, 0.5);
+      --text: #c8bfa8;
+      --text-dim: #6b6355;
+      --white: #f0ead8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Vignette */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .shield {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      position: relative;
+    }
+
+    .shield svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 16px rgba(201,168,76,0.5));
+    }
+
+    .brand {
+      font-family: 'Orbitron', monospace;
+      font-weight: 900;
+      font-size: 32px;
+      letter-spacing: 0.2em;
+      color: var(--gold-bright);
+      text-shadow: 0 0 30px rgba(201,168,76,0.4);
+      margin-bottom: 8px;
+    }
+
+    .page-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .divider {
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+
+    /* Meta info */
+    .meta {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+    }
+
+    .meta-item span {
+      color: var(--gold-dim);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 48px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: rgba(17, 14, 6, 0.6);
+      overflow: hidden;
+      backdrop-filter: blur(4px);
+    }
+
+    .section-header {
+      padding: 16px 24px;
+      background: rgba(201, 168, 76, 0.05);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-num {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--gold-dim);
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .section-body {
+      padding: 24px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* Permission table */
+    .perm-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .perm-table th {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .perm-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(201,168,76,0.07);
+      vertical-align: top;
+      font-size: 13px;
+    }
+
+    .perm-table tr:last-child td { border-bottom: none; }
+
+    .perm-name {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .perm-reason {
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Highlight box */
+    .highlight {
+      background: rgba(201,168,76,0.05);
+      border-left: 2px solid var(--gold);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+
+    .highlight strong {
+      color: var(--gold-bright);
+      font-weight: 500;
+    }
+
+    /* Contact */
+    .contact-link {
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--gold);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 48px;
+    }
+
+    .footer-brand {
+      font-family: 'Orbitron', monospace;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      margin-bottom: 8px;
+    }
+
+    .footer-copy {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-divider {
+      width: 100px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      margin: 24px auto;
+    }
+
+    /* Scanline animation */
+    @keyframes scan {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100vh); }
+    }
+
+    .scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent);
+      animation: scan 8s linear infinite;
+      pointer-events: none;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+<div class="scanline"></div>
+
+<div class="container">
+
+  <header>
+    <div class="shield">
+      <svg viewBox="0 0 72 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36 2L6 14v24c0 18 13 34 30 40 17-6 30-22 30-40V14L36 2z"
+              fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M36 8L10 18v20c0 15 11 28 26 34 15-6 26-19 26-34V18L36 8z"
+              fill="rgba(201,168,76,0.04)" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+        <circle cx="36" cy="36" r="10" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+        <path d="M36 26v10l6 6" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="36" cy="36" r="2" fill="#c9a84c"/>
+      </svg>
+    </div>
+    <div class="brand">WORLDKEY</div>
+    <div class="page-title">Privacy Policy</div>
+    <div class="divider"></div>
+    <div class="meta">
+      <div class="meta-item"><span>VERSION</span> &nbsp;1.0.0</div>
+      <div class="meta-item"><span>EFFECTIVE</span> &nbsp;May 13, 2025</div>
+      <div class="meta-item"><span>PLATFORM</span> &nbsp;Chrome Extension</div>
+    </div>
+  </header>
+
+  <!-- 1. Overview -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Overview</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey ("the Extension") is a browser extension for Google Chrome and Opera that provides proxy management, WebRTC leak protection, browser fingerprint configuration, and session management tools.</p>
+      <div class="highlight">
+        <strong>WorldKey does not collect, transmit, store, or share any personal data.</strong> All settings and configurations remain exclusively on your local device.
+      </div>
+      <p>This Privacy Policy describes how the Extension handles information and explains what permissions it requires and why.</p>
+    </div>
+  </section>
+
+  <!-- 2. Data We Do NOT Collect -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Data We Do Not Collect</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey does not collect any of the following:</p>
+      <p>— Browsing history or visited URLs<br>
+         — Cookies or session data from any website<br>
+         — Proxy credentials (username, password)<br>
+         — IP addresses or geolocation data<br>
+         — Device identifiers or fingerprint data<br>
+         — Personal information of any kind<br>
+         — Analytics, telemetry, or crash reports<br>
+         — Any data transmitted to external servers</p>
+      <p>The Extension has no backend server, no analytics integration, and no remote data collection of any kind.</p>
+    </div>
+  </section>
+
+  <!-- 3. Local Storage -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Local Data Storage</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey stores your settings locally using the browser's built-in <code style="font-family:'Share Tech Mono',monospace;color:var(--gold);font-size:12px">chrome.storage.local</code> API. This data never leaves your device.</p>
+      <p>Information stored locally includes:</p>
+      <p>— Proxy host, port, type, and scheme<br>
+         — Proxy enabled/disabled state<br>
+         — WebRTC protection policy preference<br>
+         — Fingerprint configuration (timezone, language, screen resolution, etc.)<br>
+         — Last checked external IP address and timestamp</p>
+      <div class="highlight">
+        You can delete all stored data at any time using the <strong>"Reset Settings"</strong> button in the Extension, or by removing the Extension from your browser.
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Permissions -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Permissions & Justification</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey requests the following browser permissions. Each permission is used exclusively for the stated purpose:</p>
+      <table class="perm-table">
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="perm-name">proxy</td>
+            <td class="perm-reason">Configure and control browser proxy settings (enable/disable proxy, set host/port/type).</td>
+          </tr>
+          <tr>
+            <td class="perm-name">privacy</td>
+            <td class="perm-reason">Apply WebRTC IP handling policy to prevent real IP address leaks through WebRTC.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">webRequest<br>webRequestAuthProvider</td>
+            <td class="perm-reason">Automatically handle proxy authentication challenges without showing browser dialogs to the user.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">storage</td>
+            <td class="perm-reason">Save user settings (proxy configuration, preferences) locally on the device.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">tabs</td>
+            <td class="perm-reason">Read the current active tab's URL to show the domain in the Session Manager and apply session cleanup to the correct site.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">cookies</td>
+            <td class="perm-reason">Remove cookies for the currently active website when the user clicks "Clear Session" in Session Manager.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">browsingData</td>
+            <td class="perm-reason">Clear localStorage, sessionStorage, IndexedDB, cache, and service workers for the currently active website only, on explicit user request.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">declarativeNetRequest<br>declarativeNetRequestWithHostAccess</td>
+            <td class="perm-reason">Modify the User-Agent HTTP request header as part of browser fingerprint configuration, when enabled by the user.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">&lt;all_urls&gt;</td>
+            <td class="perm-reason">Required for webRequest proxy authentication handler to intercept proxy auth challenges on any domain. The Extension does not read or store content from any webpage.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 5. Third-Party Services -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Third-Party Services</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey uses a single external service for IP verification:</p>
+      <div class="highlight">
+        <strong>api.ipify.org</strong> — a public, free IP lookup service. When you click "Check IP", the Extension makes a request to this service to retrieve your current external IP address. No personal data is sent; only a standard HTTP request is made.
+      </div>
+      <p>The Extension does not integrate with any analytics platforms, advertising networks, or third-party data processors.</p>
+    </div>
+  </section>
+
+  <!-- 6. Fingerprint Manager -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">Fingerprint Manager</span>
+    </div>
+    <div class="section-body">
+      <p>The Fingerprint Manager feature modifies certain browser API values (timezone, language, screen resolution, User-Agent, Canvas, WebGL, AudioContext, hardware parameters) to reduce browser fingerprinting by websites.</p>
+      <p>All fingerprint settings are configured and stored locally. The Extension does not transmit fingerprint data to any server. These modifications are applied in your browser only and affect how websites see your browser's properties.</p>
+      <p>The user retains full control and can disable fingerprint spoofing at any time via the Extension popup.</p>
+    </div>
+  </section>
+
+  <!-- 7. Session Manager -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <span class="section-title">Session Manager</span>
+    </div>
+    <div class="section-body">
+      <p>The Session Manager clears cookies, local storage, session storage, IndexedDB, cache, and service workers for the website currently open in your active browser tab.</p>
+      <p>This action is performed entirely within your browser. No data is transmitted externally. The cleanup applies only to the specific website domain shown in the button — other websites and your passwords are never affected.</p>
+    </div>
+  </section>
+
+  <!-- 8. Children -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <span class="section-title">Children's Privacy</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey is not directed at children under the age of 13. We do not knowingly collect any information from children. As no data is collected by this Extension from any user, this applies equally to all age groups.</p>
+    </div>
+  </section>
+
+  <!-- 9. Changes -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <span class="section-title">Changes to This Policy</span>
+    </div>
+    <div class="section-body">
+      <p>We may update this Privacy Policy when the Extension's functionality changes. Any updates will be reflected on this page with a revised effective date. Continued use of the Extension after changes constitutes acceptance of the updated policy.</p>
+    </div>
+  </section>
+
+  <!-- 10. Contact -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <span class="section-title">Contact</span>
+    </div>
+    <div class="section-body">
+      <p>If you have any questions about this Privacy Policy or the WorldKey Extension, you may contact us via GitHub:</p>
+      <p><a href="https://github.com/bogachpixel" class="contact-link">github.com/bogachpixel</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-divider"></div>
+    <div class="footer-brand">WORLDKEY</div>
+    <div class="footer-copy">© 2025 WorldKey. All rights reserved.</div>
+  </footer>
+
+</div>
+</body>
+</html>
