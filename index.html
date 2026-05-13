@@ -33,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* Grid background */
     body::before {
       content: '';
       position: fixed;
@@ -46,7 +45,6 @@
       z-index: 0;
     }
 
-    /* Vignette */
     body::after {
       content: '';
       position: fixed;
@@ -64,7 +62,6 @@
       padding: 60px 24px 100px;
     }
 
-    /* Header */
     header {
       text-align: center;
       margin-bottom: 64px;
@@ -109,7 +106,6 @@
       margin: 0 auto;
     }
 
-    /* Meta info */
     .meta {
       display: flex;
       justify-content: center;
@@ -129,7 +125,6 @@
       color: var(--gold-dim);
     }
 
-    /* Sections */
     section {
       margin-bottom: 48px;
       border: 1px solid var(--border);
@@ -176,7 +171,17 @@
 
     p:last-child { margin-bottom: 0; }
 
-    /* Permission table */
+    ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
     .perm-table {
       width: 100%;
       border-collapse: collapse;
@@ -215,21 +220,26 @@
       line-height: 1.6;
     }
 
-    /* Highlight box */
-    .highlight {
+    .highlight-box {
       background: rgba(201,168,76,0.05);
       border-left: 2px solid var(--gold);
       padding: 16px 20px;
       margin: 16px 0;
       font-size: 13px;
+      color: var(--text);
     }
 
-    .highlight strong {
+    .highlight-box strong {
       color: var(--gold-bright);
       font-weight: 500;
     }
 
-    /* Contact */
+    code {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--gold);
+      font-size: 12px;
+    }
+
     .contact-link {
       color: var(--gold);
       text-decoration: none;
@@ -244,7 +254,6 @@
       border-color: var(--gold);
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding-top: 48px;
@@ -272,7 +281,6 @@
       margin: 24px auto;
     }
 
-    /* Scanline animation */
     @keyframes scan {
       0% { transform: translateY(-100%); }
       100% { transform: translateY(100vh); }
@@ -314,7 +322,7 @@
     <div class="divider"></div>
     <div class="meta">
       <div class="meta-item"><span>VERSION</span> &nbsp;1.0.0</div>
-      <div class="meta-item"><span>EFFECTIVE</span> &nbsp;May 13, 2025</div>
+      <div class="meta-item"><span>EFFECTIVE</span> &nbsp;May 13, 2026</div>
       <div class="meta-item"><span>PLATFORM</span> &nbsp;Chrome Extension</div>
     </div>
   </header>
@@ -326,59 +334,111 @@
       <span class="section-title">Overview</span>
     </div>
     <div class="section-body">
-      <p>WorldKey ("the Extension") is a browser extension for Google Chrome and Opera that provides proxy management, WebRTC leak protection, browser fingerprint configuration, and session management tools.</p>
-      <div class="highlight">
-        <strong>WorldKey does not collect, transmit, store, or share any personal data.</strong> All settings and configurations remain exclusively on your local device.
+      <p>WorldKey ("the Extension") is a browser extension for Google Chrome and Opera that provides proxy management, WebRTC leak protection, browser profile settings, and session management tools.</p>
+      <div class="highlight-box">
+        <strong>WorldKey does not collect, transmit, store, or share any personal data with developer-controlled servers.</strong> All settings and configurations remain exclusively on your local device.
       </div>
       <p>This Privacy Policy describes how the Extension handles information and explains what permissions it requires and why.</p>
     </div>
   </section>
 
-  <!-- 2. Data We Do NOT Collect -->
+  <!-- 2. Single Purpose -->
   <section>
     <div class="section-header">
       <span class="section-num">02</span>
+      <span class="section-title">Single Purpose</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey helps users manage a consistent browser profile for proxy-based browsing by configuring a personal proxy, checking the visible IP address, enabling WebRTC leak protection, adjusting local browser profile settings, and manually clearing cookies and local site data for a selected website/domain.</p>
+    </div>
+  </section>
+
+  <!-- 3. Data We Do NOT Collect -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">03</span>
       <span class="section-title">Data We Do Not Collect</span>
     </div>
     <div class="section-body">
-      <p>WorldKey does not collect any of the following:</p>
+      <p>WorldKey stores settings locally in the user's browser. The extension does not collect, sell, transmit, or share user data with developer-controlled servers. Proxy credentials are stored locally and used only for proxy authentication. Browser profile settings are stored and applied locally. Cookies and local site data are accessed only when the user manually triggers Session Manager cleanup for the selected website/domain.</p>
+      <p>Specifically, WorldKey does not collect, store on remote servers, or transmit to any third party:</p>
       <p>— Browsing history or visited URLs<br>
          — Cookies or session data from any website<br>
          — Proxy credentials (username, password)<br>
          — IP addresses or geolocation data<br>
-         — Device identifiers or fingerprint data<br>
+         — Device identifiers or browser profile data<br>
          — Personal information of any kind<br>
-         — Analytics, telemetry, or crash reports<br>
-         — Any data transmitted to external servers</p>
+         — Analytics, telemetry, or crash reports</p>
       <p>The Extension has no backend server, no analytics integration, and no remote data collection of any kind.</p>
     </div>
   </section>
 
-  <!-- 3. Local Storage -->
+  <!-- 4. Local Data Storage -->
   <section>
     <div class="section-header">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <span class="section-title">Local Data Storage</span>
     </div>
     <div class="section-body">
-      <p>WorldKey stores your settings locally using the browser's built-in <code style="font-family:'Share Tech Mono',monospace;color:var(--gold);font-size:12px">chrome.storage.local</code> API. This data never leaves your device.</p>
+      <p>WorldKey stores your settings locally using the browser's built-in <code>chrome.storage.local</code> API. This data never leaves your device.</p>
       <p>Information stored locally includes:</p>
       <p>— Proxy host, port, type, and scheme<br>
+         — Proxy username and password, if provided by the user<br>
          — Proxy enabled/disabled state<br>
          — WebRTC protection policy preference<br>
-         — Fingerprint configuration (timezone, language, screen resolution, etc.)<br>
-         — Last checked external IP address and timestamp</p>
-      <div class="highlight">
-        You can delete all stored data at any time using the <strong>"Reset Settings"</strong> button in the Extension, or by removing the Extension from your browser.
+         — Browser profile settings (User-Agent, language, timezone, screen resolution, Canvas/WebGL/Audio-related values), if configured by the user<br>
+         — Last checked external IP address and timestamp, if the user manually performs an IP check</p>
+      <div class="highlight-box">
+        <strong>This data remains on the user's device and is not sent to developer-controlled servers.</strong> You can delete all stored data at any time using the <strong>"Reset Settings"</strong> button in the Extension, or by removing the Extension from your browser.
       </div>
     </div>
   </section>
 
-  <!-- 4. Permissions -->
+  <!-- 5. Network Requests -->
   <section>
     <div class="section-header">
-      <span class="section-num">04</span>
-      <span class="section-title">Permissions & Justification</span>
+      <span class="section-num">05</span>
+      <span class="section-title">Network Requests</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey routes the user's browser traffic only through the proxy server that the user themselves configures. Proxy credentials, when provided, are sent only to that user-configured proxy server for authentication — not to the WorldKey developer.</p>
+      <div class="highlight-box">
+        <strong>api.ipify.org</strong> — a public, free IP lookup service. When you click "Check IP", the Extension makes a request to this service to retrieve your current external IP address. No personal data is sent; only a standard HTTP request is made.
+      </div>
+      <p>The Extension does not integrate with any analytics platforms, advertising networks, or third-party data processors.</p>
+    </div>
+  </section>
+
+  <!-- 6. Session Manager -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">Session Manager</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey includes a manual Session Manager that can clear cookies and local site data for the website selected by the user. This may include cookies, local storage, session storage, IndexedDB, cache storage, and service worker data.</p>
+      <p>This action is performed only after <strong style="color:var(--gold-bright)">explicit user confirmation</strong> and only for the selected website/domain (typically the active tab's domain). The cleanup applies only to that specific domain — other websites and saved passwords are never affected.</p>
+      <p>WorldKey does not transmit the contents of cookies or site storage to developer-controlled servers.</p>
+    </div>
+  </section>
+
+  <!-- 7. Browser Profile Settings -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <span class="section-title">Browser Profile Settings</span>
+    </div>
+    <div class="section-body">
+      <p>WorldKey may apply local browser profile settings such as User-Agent, language, timezone, screen values, and Canvas/WebGL/Audio-related values, depending on the user's configuration. These settings are applied locally in the browser and are not transmitted to developer-controlled servers.</p>
+      <p>These settings are user-configurable preferences. WorldKey does not promise anonymity, untraceability, or guaranteed protection against any form of detection or identification.</p>
+    </div>
+  </section>
+
+  <!-- 8. Permissions -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <span class="section-title">Permissions &amp; Justification</span>
     </div>
     <div class="section-body">
       <p>WorldKey requests the following browser permissions. Each permission is used exclusively for the stated purpose:</p>
@@ -392,89 +452,53 @@
         <tbody>
           <tr>
             <td class="perm-name">proxy</td>
-            <td class="perm-reason">Configure and control browser proxy settings (enable/disable proxy, set host/port/type).</td>
+            <td class="perm-reason">Configure and control browser proxy settings based on values entered by the user (enable/disable proxy, set host/port/type/scheme).</td>
           </tr>
           <tr>
             <td class="perm-name">privacy</td>
-            <td class="perm-reason">Apply WebRTC IP handling policy to prevent real IP address leaks through WebRTC.</td>
+            <td class="perm-reason">Apply WebRTC IP handling policy to reduce local IP address leaks while a proxy is in use.</td>
           </tr>
           <tr>
             <td class="perm-name">webRequest<br>webRequestAuthProvider</td>
-            <td class="perm-reason">Automatically handle proxy authentication challenges without showing browser dialogs to the user.</td>
+            <td class="perm-reason">Supply the user-provided proxy credentials to the user-configured proxy server when it requests authentication. Credentials are never sent to the WorldKey developer.</td>
           </tr>
           <tr>
             <td class="perm-name">storage</td>
-            <td class="perm-reason">Save user settings (proxy configuration, preferences) locally on the device.</td>
+            <td class="perm-reason">Save proxy configuration and browser profile settings locally on the device via <code>chrome.storage.local</code>.</td>
           </tr>
           <tr>
             <td class="perm-name">tabs</td>
-            <td class="perm-reason">Read the current active tab's URL to show the domain in the Session Manager and apply session cleanup to the correct site.</td>
+            <td class="perm-reason">Read the active tab's URL to identify the selected website/domain so the Session Manager can show it and apply cleanup only to that domain.</td>
           </tr>
           <tr>
             <td class="perm-name">cookies</td>
-            <td class="perm-reason">Remove cookies for the currently active website when the user clicks "Clear Session" in Session Manager.</td>
+            <td class="perm-reason">Remove cookies for the selected website/domain when the user manually triggers Session Manager cleanup. Used only on explicit user request.</td>
           </tr>
           <tr>
             <td class="perm-name">browsingData</td>
-            <td class="perm-reason">Clear localStorage, sessionStorage, IndexedDB, cache, and service workers for the currently active website only, on explicit user request.</td>
+            <td class="perm-reason">Clear local site data (cache, localStorage, IndexedDB, service workers) for the selected website/domain when the user manually triggers Session Manager cleanup.</td>
+          </tr>
+          <tr>
+            <td class="perm-name">history</td>
+            <td class="perm-reason">Remove local browser history entries matching the selected website/domain when the user manually triggers Session Manager cleanup.</td>
           </tr>
           <tr>
             <td class="perm-name">declarativeNetRequest<br>declarativeNetRequestWithHostAccess</td>
-            <td class="perm-reason">Modify the User-Agent HTTP request header as part of browser fingerprint configuration, when enabled by the user.</td>
+            <td class="perm-reason">Apply the user's chosen User-Agent as a local request header modification when Browser Profile Settings are enabled.</td>
           </tr>
           <tr>
             <td class="perm-name">&lt;all_urls&gt;</td>
-            <td class="perm-reason">Required for webRequest proxy authentication handler to intercept proxy auth challenges on any domain. The Extension does not read or store content from any webpage.</td>
+            <td class="perm-reason">Required for the proxy authentication handler and optional User-Agent header rule to apply across websites the user visits. WorldKey does not read or transmit page content from these sites.</td>
           </tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- 5. Third-Party Services -->
+  <!-- 9. Children -->
   <section>
     <div class="section-header">
-      <span class="section-num">05</span>
-      <span class="section-title">Third-Party Services</span>
-    </div>
-    <div class="section-body">
-      <p>WorldKey uses a single external service for IP verification:</p>
-      <div class="highlight">
-        <strong>api.ipify.org</strong> — a public, free IP lookup service. When you click "Check IP", the Extension makes a request to this service to retrieve your current external IP address. No personal data is sent; only a standard HTTP request is made.
-      </div>
-      <p>The Extension does not integrate with any analytics platforms, advertising networks, or third-party data processors.</p>
-    </div>
-  </section>
-
-  <!-- 6. Fingerprint Manager -->
-  <section>
-    <div class="section-header">
-      <span class="section-num">06</span>
-      <span class="section-title">Fingerprint Manager</span>
-    </div>
-    <div class="section-body">
-      <p>The Fingerprint Manager feature modifies certain browser API values (timezone, language, screen resolution, User-Agent, Canvas, WebGL, AudioContext, hardware parameters) to reduce browser fingerprinting by websites.</p>
-      <p>All fingerprint settings are configured and stored locally. The Extension does not transmit fingerprint data to any server. These modifications are applied in your browser only and affect how websites see your browser's properties.</p>
-      <p>The user retains full control and can disable fingerprint spoofing at any time via the Extension popup.</p>
-    </div>
-  </section>
-
-  <!-- 7. Session Manager -->
-  <section>
-    <div class="section-header">
-      <span class="section-num">07</span>
-      <span class="section-title">Session Manager</span>
-    </div>
-    <div class="section-body">
-      <p>The Session Manager clears cookies, local storage, session storage, IndexedDB, cache, and service workers for the website currently open in your active browser tab.</p>
-      <p>This action is performed entirely within your browser. No data is transmitted externally. The cleanup applies only to the specific website domain shown in the button — other websites and your passwords are never affected.</p>
-    </div>
-  </section>
-
-  <!-- 8. Children -->
-  <section>
-    <div class="section-header">
-      <span class="section-num">08</span>
+      <span class="section-num">09</span>
       <span class="section-title">Children's Privacy</span>
     </div>
     <div class="section-body">
@@ -482,25 +506,26 @@
     </div>
   </section>
 
-  <!-- 9. Changes -->
-  <section>
-    <div class="section-header">
-      <span class="section-num">09</span>
-      <span class="section-title">Changes to This Policy</span>
-    </div>
-    <div class="section-body">
-      <p>We may update this Privacy Policy when the Extension's functionality changes. Any updates will be reflected on this page with a revised effective date. Continued use of the Extension after changes constitutes acceptance of the updated policy.</p>
-    </div>
-  </section>
-
-  <!-- 10. Contact -->
+  <!-- 10. Changes -->
   <section>
     <div class="section-header">
       <span class="section-num">10</span>
+      <span class="section-title">Changes to This Policy</span>
+    </div>
+    <div class="section-body">
+      <p>This Privacy Policy may be updated when the Extension's functionality changes. Any updates will be reflected on this page with a revised effective date. Continued use of the Extension after changes constitutes acceptance of the updated policy.</p>
+    </div>
+  </section>
+
+  <!-- 11. Contact -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">11</span>
       <span class="section-title">Contact</span>
     </div>
     <div class="section-body">
-      <p>If you have any questions about this Privacy Policy or the WorldKey Extension, you may contact us via GitHub:</p>
+      <p>If you have any questions about this Privacy Policy or the WorldKey Extension, you may contact the developer:</p>
+      <p><a href="mailto:viazovtsev@incruises.com" class="contact-link">viazovtsev@incruises.com</a></p>
       <p><a href="https://github.com/bogachpixel" class="contact-link">github.com/bogachpixel</a></p>
     </div>
   </section>
@@ -508,7 +533,7 @@
   <footer>
     <div class="footer-divider"></div>
     <div class="footer-brand">WORLDKEY</div>
-    <div class="footer-copy">© 2025 WorldKey. All rights reserved.</div>
+    <div class="footer-copy">© 2026 WorldKey. All rights reserved.</div>
   </footer>
 
 </div>
